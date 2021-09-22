@@ -3,9 +3,6 @@ package de.wagentim.collector.utils;
 import de.wagentim.collector.entity.KeyValuePair;
 
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.security.KeyException;
-import java.security.PublicKey;
 import java.util.StringTokenizer;
 
 public class StringUtils

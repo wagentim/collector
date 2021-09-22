@@ -1,6 +1,5 @@
 package de.wagentim.collector.db;
 
-import de.wagentim.collector.entity.Price;
 import de.wagentim.collector.entity.Music;
 
 import javax.persistence.EntityManager;

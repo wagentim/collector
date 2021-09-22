@@ -10,7 +10,6 @@ import de.wagentim.collector.db.ObjectDBMusicHandler;
 import de.wagentim.collector.entity.KeyValuePair;
 import de.wagentim.collector.utils.FileDownloadUtil;
 import de.wagentim.collector.utils.IConstants;
-import de.wagentim.collector.utils.NetUtils;
 import de.wagentim.collector.utils.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,14 +28,11 @@ import de.wagentim.collector.sites.MusicSiteHandler;
 public class Flitting extends MusicSiteHandler
 {
 
-	private static final String SELECT_MAIN_DIV = ".main";
-	private static final String SLEECT_NET_MUSIC_RANKING = ".fr a";
 	private static final String SELECT_NET_MUSIC_RANKING_SONG_LIST = "#wlsong li";
 	private static final String SELECT_MUSIC_NAME = "a.gname";
 	private ObjectDBMusicHandler dbHandler;
 	private String uuid = IConstants.TXT_EMPTY_STRING;
 	private static final String SELECT_MUSIC_LINK = "div#musickrc audio#audio";
-	private NetUtils nu;
 	private static int MAX_MUSICS = 15;
 	
 	private List<Music> musicList = new ArrayList<Music>();
@@ -49,7 +45,6 @@ public class Flitting extends MusicSiteHandler
 		super(webDriver, ngWebDriver);
 		webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		dbHandler = new ObjectDBMusicHandler("D:\\test\\flitting.odb");
-		nu = new NetUtils();
 		downloader = new FileDownloadUtil();
 	}
 
@@ -135,20 +130,4 @@ public class Flitting extends MusicSiteHandler
 	{
 		return "Flitting";
 	}
-
-	public static void main(String[] args)
-	{
-		String key = "webdriver.gecko.driver";
-		String value = "D:\\libs\\geckodriver.exe";
-		System.setProperty(key, value);
-//		FirefoxOptions options = new FirefoxOptions();
-//		options.setHeadless(true);
-//		FirefoxDriver ffd = new FirefoxDriver(options);
-		FirefoxDriver ffd = new FirefoxDriver();
-		NgWebDriver ngwd = new NgWebDriver(ffd);
-		
-		Flitting flitting = new Flitting(ffd, ngwd);
-		flitting.handleSite();
-	}
-
 }

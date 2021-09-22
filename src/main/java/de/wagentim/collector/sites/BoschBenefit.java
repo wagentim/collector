@@ -29,9 +29,6 @@ public class BoschBenefit extends ProductSiteHandler
 	private Pattern pattern = null;
 	private String uuid = IConstants.TXT_EMPTY_STRING;
 
-	private final String USERNAME = "Bin.Huang@etas.com";
-	private final String PASSWORD = "!Xiaobao101";
-	
 	public BoschBenefit(WebDriver webDriver, NgWebDriver ngWebDriver)
 	{
 		super(webDriver, ngWebDriver);

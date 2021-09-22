@@ -1,37 +1,28 @@
 package de.wagentim.collector.sites;
 
-import java.util.regex.Pattern;
-
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
 import org.openqa.selenium.WebDriver;
-
-import de.wagentim.collector.db.ObjectDBProductHandler;
-import de.wagentim.collector.utils.IConstants;
 
 public class Amazon extends ProductSiteHandler
 {
 
 	public Amazon(WebDriver webDriver, NgWebDriver ngWebDriver) {
 		super(webDriver, ngWebDriver);
-		//TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void handleSite() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected String getStartLink() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected String getSiteName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	/* private ObjectDBProductHandler dbHandler;

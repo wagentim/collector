@@ -96,4 +96,9 @@ public abstract class SiteHandler implements ISiteHandler
 	protected abstract String getStartLink();
 
 	protected abstract String getSiteName();
+
+	protected void print(String s)
+	{
+		System.out.println(s);
+	}
 }
