@@ -1,4 +1,4 @@
-package de.wagentim.collector.sites;
+package de.wagentim.collector.sites.products;
 
 import java.util.List;
 import java.util.StringTokenizer;
@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import de.wagentim.collector.db.ObjectDBProductHandler;
 import de.wagentim.collector.entity.Price;
 import de.wagentim.collector.entity.Product;
+import de.wagentim.collector.sites.ProductSiteHandler;
 import de.wagentim.collector.utils.IConstants;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;

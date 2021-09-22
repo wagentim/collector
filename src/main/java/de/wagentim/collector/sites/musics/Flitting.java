@@ -1,6 +1,5 @@
-package de.wagentim.collector.sites;
+package de.wagentim.collector.sites.musics;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +16,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -26,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
 import de.wagentim.collector.entity.Music;
+import de.wagentim.collector.sites.MusicSiteHandler;
 
 public class Flitting extends MusicSiteHandler
 {
@@ -38,7 +37,7 @@ public class Flitting extends MusicSiteHandler
 	private String uuid = IConstants.TXT_EMPTY_STRING;
 	private static final String SELECT_MUSIC_LINK = "div#musickrc audio#audio";
 	private NetUtils nu;
-	private static int MAX_MUSICS = 20;
+	private static int MAX_MUSICS = 15;
 	
 	private List<Music> musicList = new ArrayList<Music>();
 
@@ -93,14 +92,20 @@ public class Flitting extends MusicSiteHandler
 				dbHandler.addMusic(m);
 				String link = we.getAttribute("href");
 				openTab(we, link);
-				WebDriverWait wait = new WebDriverWait(webDriver, 10);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(SELECT_MUSIC_LINK)));
+				WebDriverWait wait = new WebDriverWait(webDriver, 5);
+				//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(SELECT_MUSIC_LINK)));
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(SELECT_MUSIC_LINK)));
 				String musicLink = webDriver.findElement(By.cssSelector(SELECT_MUSIC_LINK)).getAttribute("src");
 				webDriver.close();
 				ArrayList<String> tabs = new ArrayList<String>(webDriver.getWindowHandles());
 				webDriver.switchTo().window(tabs.get(0));
+				if(musicLink == null)
+				{
+					continue;
+				}
 				try {
-					downloader.simpleDownloadFile(musicLink, MUSIC_SAVE_DIR + m.getMusicNameMP3());
+					System.out.println(index);
+					downloader.simpleDownloadFile(musicLink, MUSIC_SOURCE_DIR + m.getMusicNameMP3());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

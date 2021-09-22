@@ -5,14 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;
 
-import de.wagentim.collector.db.ObjectDBProductHandler;
-
 import java.util.Iterator;
 import java.util.List;
 
 public abstract class MusicSiteHandler extends SiteHandler
 {
-	protected static final String MUSIC_SAVE_DIR = "F:\\DownloadMusics\\";
+	public static final String MUSIC_SOURCE_DIR = "F:\\DownloadMusics\\";
+	public static final String MUSIC_TARGET_DIR = "F:\\Musics\\updated";
 	public MusicSiteHandler(WebDriver webDriver, NgWebDriver ngWebDriver)
 	{
 		super(webDriver, ngWebDriver);

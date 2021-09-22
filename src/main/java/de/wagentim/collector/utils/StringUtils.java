@@ -2,6 +2,7 @@ package de.wagentim.collector.utils;
 
 import de.wagentim.collector.entity.KeyValuePair;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.KeyException;
 import java.security.PublicKey;
@@ -34,5 +35,11 @@ public class StringUtils
         }
 
         return kvp;
+    }
+
+    public static String toUTF8(String input)
+    {
+        byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
+        return new String(bytes, StandardCharsets.UTF_8);
     }
 }

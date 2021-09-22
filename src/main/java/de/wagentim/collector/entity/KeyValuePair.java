@@ -34,4 +34,9 @@ public class KeyValuePair
     public void setValue(String value) {
         this.value = value;
     }
+
+    public boolean isComplete()
+    {
+        return (!this.key.isEmpty()) && (!this.value.isEmpty());
+    }
 }
