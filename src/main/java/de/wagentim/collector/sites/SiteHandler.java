@@ -29,11 +29,6 @@ public abstract class SiteHandler implements ISiteHandler
 		
 	}
 	
-	protected void exit()
-	{
-		webDriver.quit();
-	}
-
 	protected List<WebElement> getWebElementWithLink(String link, String cssSelector, boolean ngWait)
 	{
 		if(link == null || link.isEmpty())

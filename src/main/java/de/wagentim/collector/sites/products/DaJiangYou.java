@@ -61,10 +61,9 @@ public class DaJiangYou extends ProductSiteHandler
 		
 		// step 2: parser all productions
 		handlePage(page);
-		
+		webDriver.quit();
 		dbHandler.saveBackToDB(uuid);
-		exit();
-		dbHandler.exit();
+		dbHandler.exit();		
 	}
 	
 	public List<Product> getPriceDecreaseProducts()

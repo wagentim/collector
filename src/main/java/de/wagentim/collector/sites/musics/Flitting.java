@@ -14,7 +14,6 @@ import de.wagentim.collector.utils.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -35,8 +34,6 @@ public class Flitting extends MusicSiteHandler
 	private static final String SELECT_MUSIC_LINK = "div#musickrc audio#audio";
 	private static int MAX_MUSICS = 15;
 	
-	private List<Music> musicList = new ArrayList<Music>();
-
 	private Logger logger = LoggerFactory.getLogger(Flitting.class);
 	private FileDownloadUtil downloader;
 	
@@ -51,7 +48,6 @@ public class Flitting extends MusicSiteHandler
 	@Override
 	public void handleSite()
 	{
-		musicList.clear();
 		uuid = dbHandler.createEntityManager();
 		dbHandler.getAllMusicFromDB(uuid);
 		
