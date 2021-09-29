@@ -30,7 +30,6 @@ public class EbayKleinAnzeige extends ImmoSiteHandler
     private static final String SELECT_ITEM_TITLE = "div.aditem-main div.aditem-main--middle a";
     private static final String SELECT_ITEM_PRICE = "div.aditem-main div.aditem-main--middle p.aditem-main--middle--price";
     private static final String SELECT_ITEM_SIZE = "div.aditem-main div.aditem-main--bottom span";
-    private static final String SELECT_ITEM_LINK = "div.aditem-main div.aditem-main--bottom span";
 
     private ObjectDBImmoHandler dbHandler;
     private String uuid = IConstants.TXT_EMPTY_STRING;
@@ -80,7 +79,7 @@ public class EbayKleinAnzeige extends ImmoSiteHandler
         we = webDriver.findElement(By.cssSelector(SELECT_SEARCH_PLACE));
         if(we != null)
         {
-            we.sendKeys("stuttgart");
+            we.sendKeys("ludwigsburg");
         }
 
         handlePage(we);
@@ -149,8 +148,6 @@ public class EbayKleinAnzeige extends ImmoSiteHandler
         if(im.getPrice().toLowerCase().contains("such"))
             return false;
         else if(im.getTitle().toLowerCase().contains("such"))
-            return false;
-        else if(im.getPrice().toLowerCase().contains("vb"))
             return false;
 
         return true;

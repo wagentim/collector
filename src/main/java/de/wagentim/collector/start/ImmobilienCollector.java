@@ -12,7 +12,7 @@ public class ImmobilienCollector extends Collector
 
 	public static void main(String[] args)
 	{
-		ImmobilienCollector sic = new ImmobilienCollector(false);
+		ImmobilienCollector sic = new ImmobilienCollector(true);
 		sic.run();
 	}
 

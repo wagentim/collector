@@ -89,44 +89,4 @@ public class MP3TagUpdater
                 }
         );
     }
-
-    private void removeV1AndCustomerTags(Mp3File music)
-    {
-        removeV1Tag(music);
-        removeCustomerTags(music);
-    }
-
-    private void removeCustomerTags(Mp3File music)
-    {
-        if(music.hasCustomTag())
-        {
-            music.removeCustomTag();
-        }
-    }
-
-    private void removeV1Tag(Mp3File music)
-    {
-        if(music.hasId3v1Tag())
-        {
-            music.removeId3v1Tag();
-        }
-    }
-
-    private void removeV2Tag(Mp3File music)
-    {
-        if(music.hasId3v2Tag())
-        {
-            music.removeId3v2Tag();
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        MP3TagUpdater updater = new MP3TagUpdater();
-        try {
-            updater.update();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
