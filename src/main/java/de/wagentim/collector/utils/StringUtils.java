@@ -39,4 +39,9 @@ public class StringUtils
         byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
         return new String(bytes, StandardCharsets.UTF_8);
     }
+
+    public static boolean checkNullOrEmpty(final String input)
+    {
+        return (input == null || input.isEmpty()) ? true : false;
+    }
 }
