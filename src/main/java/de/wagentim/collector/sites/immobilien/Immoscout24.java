@@ -26,7 +26,7 @@ public class Immoscout24 extends SeleniumSite
     private static final String SELECT_ITEM_PRICE = "div.aditem-main div.aditem-main--middle p.aditem-main--middle--price";
     private static final String SELECT_ITEM_SIZE = "div.aditem-main div.aditem-main--bottom span";
 
-    private ObjectDBImmoHandler dbHandler;
+    private final ObjectDBImmoHandler dbHandler;
     private String uuid = IConstants.TXT_EMPTY_STRING;
 
     public Immoscout24()
@@ -54,6 +54,11 @@ public class Immoscout24 extends SeleniumSite
 
         seleniumCrawler.fillContent("Ludwigsburg", seleniumCrawler.getWebElement(null, SELECT_FORM_INPUT_LOCATION, true));
         seleniumCrawler.waitfor(3);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         /*
         we = seleniumCrawler.getWebElement(null, SELECT_SELECTION, true);
         Select select = new Select(we);
