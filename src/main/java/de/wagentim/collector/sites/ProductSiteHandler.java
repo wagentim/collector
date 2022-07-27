@@ -1,15 +1,8 @@
 package de.wagentim.collector.sites;
 
-import org.openqa.selenium.WebDriver;
+import de.wagentim.collector.sites.main.AbstractSite;
 
-import com.paulhammant.ngwebdriver.NgWebDriver;
-
-public abstract class ProductSiteHandler extends SiteHandler
+public abstract class ProductSiteHandler extends AbstractSite
 {
-	
-	public ProductSiteHandler(WebDriver webDriver, NgWebDriver ngWebDriver)
-	{
-		super(webDriver, ngWebDriver);
-	}
 
 }

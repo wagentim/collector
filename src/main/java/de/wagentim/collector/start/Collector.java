@@ -2,36 +2,16 @@ package de.wagentim.collector.start;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.paulhammant.ngwebdriver.NgWebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import de.wagentim.collector.sites.SiteHandler;
+
+import de.wagentim.collector.sites.main.AbstractSite;
 
 public abstract class Collector 
 {
 
-    protected FirefoxDriver ffd = null;
-    protected NgWebDriver ngwd = null;
-    protected List<SiteHandler> handlers = new ArrayList<SiteHandler>();
+    protected List<AbstractSite> handlers = new ArrayList<AbstractSite>();
 
-    public Collector(boolean headless)
+    public Collector()
     {
-        String key = "webdriver.gecko.driver";
-		String value = "D:\\libs\\geckodriver.exe";
-		System.setProperty(key, value);
-
-		FirefoxOptions options = new FirefoxOptions();
-		options.setHeadless(true);
-        if(headless)
-        {
-		    ffd = new FirefoxDriver(options);
-        }
-        else
-        {
-    		ffd = new FirefoxDriver();
-        }
-
-		ngwd = new NgWebDriver(ffd);
         addSites();
     }
 
@@ -40,12 +20,12 @@ public abstract class Collector
     protected void run()
 	{
 		
-		for(SiteHandler handler : handlers)
+		for(AbstractSite handler : handlers)
 		{
            
             if(handler != null)
             {
-			    handler.handleSite();
+
             }
 		
 		}
